@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta del Restaurante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 60px; /* Ensures the flag bar does not overlap content */
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .language-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-align: center; /* Center align the flags */
+            display: flex;
+            justify-content: center; /* Ensure flags are evenly spaced */
+            gap: 20px; /* Add more spacing between flags */
+        }
+        .language-switch img {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .section {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2em;
+            margin: 10px 0;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        .price {
+            font-weight: bold;
+            color: #555;
+        }
+        @media (max-width: 600px) {
+            .container {
+                display: block;
+                padding: 10px;
+            }
+            .section {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <script>
+        function changeLanguage(lang) {
+            const sections = document.querySelectorAll('.section');
+            if (lang === 'es') {
+                document.querySelector('h1').innerText = 'Carta del Restaurante';
+                sections[0].querySelector('h2').innerText = 'Entrantes';
+                sections[0].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Entrante ${index + 1} <span class="price">7,50€</span>`);
+
+                sections[1].querySelector('h2').innerText = 'Platos Principales';
+                sections[1].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Principal ${index + 1} <span class="price">12,50€</span>`);
+
+                sections[2].querySelector('h2').innerText = 'Postres';
+                sections[2].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Postre ${index + 1} <span class="price">4,50€</span>`);
+
+                sections[3].querySelector('h2').innerText = 'Bebidas';
+                sections[3].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Bebida ${index + 1} <span class="price">2,50€</span>`);
+            } else if (lang === 'en') {
+                document.querySelector('h1').innerText = 'Restaurant Menu';
+                sections[0].querySelector('h2').innerText = 'Starters';
+                sections[0].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Starter ${index + 1} <span class="price">7.50€</span>`);
+
+                sections[1].querySelector('h2').innerText = 'Main Courses';
+                sections[1].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Main ${index + 1} <span class="price">12.50€</span>`);
+
+                sections[2].querySelector('h2').innerText = 'Desserts';
+                sections[2].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Dessert ${index + 1} <span class="price">4.50€</span>`);
+
+                sections[3].querySelector('h2').innerText = 'Drinks';
+                sections[3].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Drink ${index + 1} <span class="price">2.50€</span>`);
+            } else if (lang === 'fr') {
+                document.querySelector('h1').innerText = 'Menu du Restaurant';
+                sections[0].querySelector('h2').innerText = 'Entrées';
+                sections[0].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Entrée ${index + 1} <span class="price">7,50€</span>`);
+
+                sections[1].querySelector('h2').innerText = 'Plats Principaux';
+                sections[1].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Plat Principal ${index + 1} <span class="price">12,50€</span>`);
+
+                sections[2].querySelector('h2').innerText = 'Desserts';
+                sections[2].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Dessert ${index + 1} <span class="price">4,50€</span>`);
+
+                sections[3].querySelector('h2').innerText = 'Boissons';
+                sections[3].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Boisson ${index + 1} <span class="price">2,50€</span>`);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="language-bar">
+        <div class="language-switch">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png" alt="Español" onclick="changeLanguage('es')">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" alt="English" onclick="changeLanguage('en')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2560px-Flag_of_France.svg.png" alt="Français" onclick="changeLanguage('fr')">
+        </div>
+    </div>
+
+    <h1>Carta del Restaurante</h1>
+
+    <div class="container">
+        <div class="section" id="entrantes">
+            <h2>Entrantes</h2>
+            <ul>
+                <li>Entrante 1 <span class="price">7,50€</span></li>
+                <li>Entrante 2 <span class="price">6,80€</span></li>
+                <li>Entrante 3 <span class="price">5,90€</span></li>
+                <li>Entrante 4 <span class="price">6,20€</span></li>
+                <li>Entrante 5 <span class="price">7,10€</span></li>
+                <li>Entrante 6 <span class="price">6,50€</span></li>
+                <li>Entrante 7 <span class="price">9,30€</span></li>
+            </ul>
+        </div>
+
+        <div class="section" id="platos-principales">
+            <h2>Platos Principales</h2>
+            <ul>
+                <li>Principal 1 <span class="price">12,50€</span></li>
+                <li>Principal 2 <span class="price">18,00€</span></li>
+                <li>Principal 3 <span class="price">14,30€</span></li>
+                <li>Principal 4 <span class="price">11,90€</span></li>
+                <li>Principal 5 <span class="price">16,50€</span></li>
+                <li>Principal 6 <span class="price">13,20€</span></li>
+                <li>Principal 7 <span class="price">10,80€</span></li>
+                <li>Principal 8 <span class="price">9,50€</span></li>
+                <li>Principal 9 <span class="price">17,10€</span></li>
+                <li>Principal 10 <span class="price">12,80€</span></li>
+                <li>Principal 11 <span class="price">15,00€</span></li>
+                <li>Principal 12 <span class="price">13,50€</span></li>
+                <li>Principal 13 <span class="price">16,20€</span></li>
+                <li>Principal 14 <span class="price">12,90€</span></li>
+                <li>Principal 15 <span class="price">11,40€</span></li>
+            </ul>
+        </div>
+
+        <div class="section" id="postres">
+            <h2>Postres</h2>
+            <ul>
+                <li>Postre 1 <span class="price">4,50€</span></li>
+                <li>Postre 2 <span class="price">5,20€</span></li>
+                <li>Postre 3 <span class="price">4,80€</span></li>
+                <li>Postre 4 <span class="price">3,90€</span></li>
+                <li>Postre 5 <span class="price">5,50€</span></li>
+                <li>Postre 6 <span class="price">4,70€</span></li>
+                <li>Postre 7 <span class="price">3,50€</span></li>
+            </ul>
+        </div>
+
+        <div class="section" id="bebidas">
+            <h2>Bebidas</h2>
+            <ul>
+                <li>Bebida 1 <span class="price">2,50€</span></li>
+                <li>Bebida 2 <span class="price">3,00€</span></li>
+                <li>Bebida 3 <span class="price">4,20€</span></li>
+                <li>Bebida 4 <span class="price">5,80€</span></li>
+                <li>Bebida 5 <span class="price">9,00€</span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
