@@ -8,6 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
             padding-top: 60px;
             background-color: #f4f4f4;
             background-image: url('./flamenco.jpeg');
@@ -22,13 +23,18 @@
             left: 0;
             width: 100%;
             background-color: #ffffff;
-            padding: 10px 20px;
+            padding: 10px 0; /* Elimina el padding horizontal */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             text-align: center;
             display: flex;
             justify-content: center;
             gap: 20px;
+        }
+
+        .language-switch {
+            margin: 0;
+            padding: 0;
         }
         .language-switch img {
             width: 30px;
