@@ -8,8 +8,12 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding-top: 60px; /* Ensures the flag bar does not overlap content */
+            padding-top: 60px;
             background-color: #f4f4f4;
+            background-image: url('./flamenco.jpeg');
+            background-repeat: repeat;
+            background-size: 100px 100px;
+            background-position: top left;
             color: #333;
         }
         .language-bar {
@@ -21,10 +25,10 @@
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            text-align: center; /* Center align the flags */
+            text-align: center;
             display: flex;
-            justify-content: center; /* Ensure flags are evenly spaced */
-            gap: 20px; /* Add more spacing between flags */
+            justify-content: center;
+            gap: 20px;
         }
         .language-switch img {
             width: 30px;
@@ -92,45 +96,282 @@
     <script>
         function changeLanguage(lang) {
             const sections = document.querySelectorAll('.section');
+            const tapasESP = `<ul>
+                <li>Patatas Bravas <span class="price">6,00€</span></li>
+                <li>Pipirrana de Marisco <span class="price">6,50€</span></li>
+                <li>Albóndigas en Salsa de Almendras <span class="price">7,00€</span></li>
+                <li>Croquetas Caseras <span class="price">8,00€</span></li>
+                <li>Boquerones en Vinagre <span class="price">6,50€</span></li>
+                <li>Patatas Fritas <span class="price">5,00€</span></li>
+                <li>Ensaladilla Rusa <span class="price">6,50€</span></li>
+                <li>Cogollos con Gambas Pil Pil<span class="price">7,50</span></li>
+            </ul>`;
+            const tapasENG = `<ul>
+                <li>Spicy Potatoes <span class="price">6.00€</span></li>
+                <li>Seafood Salad <span class="price">6.50€</span></li>
+                <li>Meatballs in Almond Sauce <span class="price">7.00€</span></li>
+                <li>Homemade Croquettes <span class="price">8.00€</span></li>
+                <li>Anchovies in Vinegar <span class="price">6.50€</span></li>
+                <li>French Fries <span class="price">5.00€</span></li>
+                <li>Russian Salad <span class="price">6.50€</span></li>
+                <li>Lettuce Hearts with Garlic Shrimp <span class="price">7.50€</span></li>
+            </ul>`;
+            const tapasFRN = `<ul>
+                <li>Pommes de Terre Épicées <span class="price">6,00€</span></li>
+                <li>Salade de Fruits de Mer <span class="price">6,50€</span></li>
+                <li>Boulettes de Viande à la Sauce Amande <span class="price">7,00€</span></li>
+                <li>Croquettes Maison <span class="price">8,00€</span></li>
+                <li>Anchois au Vinaigre <span class="price">6,50€</span></li>
+                <li>Frites <span class="price">5,00€</span></li>
+                <li>Salade Russe <span class="price">6,50€</span></li>
+                <li>Cœurs de Laitue aux Crevettes à l'Ail <span class="price">7,50€</span></li>
+            </ul>`;
+            const entrantesESP = `<ul>
+                <li>Melón con Jamón <span class="price">9,00€</span></li>
+                <li>Ensaladilla Rusa <span class="price">12,00€</span></li>
+                <li>Steak Tartar <span class="price">20,00€</span></li>
+                <li>Jamón Ibérico <span class="price">20,00€</span></li>
+                <li>Croquetas Caseras <span class="price">16,00€</span></li>
+                <li>Patatas Fritas <span class="price">8,50€</span></li>
+                <li>Patatas Bravas <span class="price">13,00€</span></li>
+                <li>Lagrimitas de Pollo <span class="price">12,00</span></li>
+            </ul>`;
+            const entrantesENG = `<ul>
+                <li>Melon with Ham <span class="price">9.00€</span></li>
+                <li>Russian Salad <span class="price">12.00€</span></li>
+                <li>Steak Tartare <span class="price">20.00€</span></li>
+                <li>Iberian Ham <span class="price">20.00€</span></li>
+                <li>Homemade Croquettes <span class="price">16.00€</span></li>
+                <li>French Fries <span class="price">8.50€</span></li>
+                <li>Spicy Potatoes <span class="price">13.00€</span></li>
+                <li>Chicken Strips <span class="price">12.00€</span></li>
+            </ul>`;
+            const entrantesFRN = `<ul>
+                <li>Melon au Jambon <span class="price">9,00€</span></li>
+                <li>Salade Russe <span class="price">12,00€</span></li>
+                <li>Steak Tartare <span class="price">20,00€</span></li>
+                <li>Jambon Ibérique <span class="price">20,00€</span></li>
+                <li>Croquettes Maison <span class="price">16,00€</span></li>
+                <li>Frites <span class="price">8,50€</span></li>
+                <li>Pommes de Terre Épicées <span class="price">13,00€</span></li>
+                <li>Lanières de Poulet <span class="price">12,00€</span></li>
+            </ul>`;
+            const especialidadesESP = `<ul>
+                <li>Gambas Cocidas <span class="price">12,00€</span></li>
+                <li>Cogollos con Gambas Pil Pil  <span class="price">15,00€</span></li>
+                <li>Taco Marinero <span class="price">9,00€</span></li>
+                <li>Berenjenas Fritas con Miel de Caña <span class="price">9,50€</span></li>
+                <li>Gambas Pil Pil <span class="price">14,00€</span></li>
+                <li>Boquerones en Vinagre <span class="price">13,00€</span></li>
+                <li>Pipirrana de Marisco <span class="price">13,00€</span></li>
+                <li>Albóndigas en Salsa de Almendras <span class="price">14,00€</span></li>
+            </ul>`;
+            const especialidadesENG = `<ul>
+                <li>Boiled Prawns <span class="price">12.00€</span></li>
+                <li>Lettuce Hearts with Garlic Shrimp <span class="price">15.00€</span></li>
+                <li>Seafood Taco <span class="price">9.00€</span></li>
+                <li>Fried Eggplant with Cane Honey <span class="price">9.50€</span></li>
+                <li>Garlic Shrimp <span class="price">14.00€</span></li>
+                <li>Anchovies in Vinegar <span class="price">13.00€</span></li>
+                <li>Seafood Salad <span class="price">13.00€</span></li>
+                <li>Meatballs in Almond Sauce <span class="price">14.00€</span></li>
+            </ul>`;
+            const especialidadesFRN = `<ul>
+                <li>Crevettes Bouillies <span class="price">12,00€</span></li>
+                <li>Cœurs de Laitue aux Crevettes à l'Ail <span class="price">15,00€</span></li>
+                <li>Taco Marinier <span class="price">9,00€</span></li>
+                <li>Aubergines Frites au Miel de Canne <span class="price">9,50€</span></li>
+                <li>Crevettes à l'Ail <span class="price">14,00€</span></li>
+                <li>Anchois au Vinaigre <span class="price">13,00€</span></li>
+                <li>Salade de Fruits de Mer <span class="price">13,00€</span></li>
+                <li>Boulettes de Viande à la Sauce Amande <span class="price">14,00€</span></li>
+            </ul>`;
+            const enasaldasESP = `<ul>
+                <li>Ensalada Mixta <span class="price">12,00€</span></li>
+                <li>Ensalada César  <span class="price">15,00€</span></li>
+                <li>Ensalada Flamenco <span class="price">16,00€</span></li>
+            </ul>`;
+            const ensaladasENG = `<ul>
+                <li>Mixed Salad <span class="price">12.00€</span></li>
+                <li>Caesar Salad <span class="price">15.00€</span></li>
+                <li>Flamenco Salad <span class="price">16.00€</span></li>
+            </ul>`;
+            const ensaladasFRN = `<ul>
+                <li>Salade Mixte <span class="price">12,00€</span></li>
+                <li>Salade César <span class="price">15,00€</span></li>
+                <li>Salade Flamenco <span class="price">16,00€</span></li>
+            </ul>`;
+            const fritosESP = `<ul>
+                <li>Boquerones <span class="price">10,00€</span></li>
+                <li>Boquerones al Limón <span class="price">10,00€</span></li>
+                <li>Calamares <span class="price">12,00€</span></li>
+                <li>Calamaritos <span class="price">12,00€</span></li>
+                <li>Adobo <span class="price">10,00€</span></li>
+                <li>Pulpo <span class="price">12,00€</span></li>
+                <li>Rosada <span class="price">12,00€</span></li>
+            </ul>`;
+            const fritosENG = `<ul>
+                <li>Anchovies <span class="price">10.00€</span></li>
+                <li>Lemon Anchovies <span class="price">10.00€</span></li>
+                <li>Squid <span class="price">12.00€</span></li>
+                <li>Baby Squid <span class="price">12.00€</span></li>
+                <li>Marinated Fish <span class="price">10.00€</span></li>
+                <li>Octopus <span class="price">12.00€</span></li>
+                <li>Grilled Pink Fish <span class="price">12.00€</span></li>
+            </ul>`;
+            const fritosFRN = `<ul>
+                <li>Anchois <span class="price">10,00€</span></li>
+                <li>Anchois au Citron <span class="price">10,00€</span></li>
+                <li>Calamars <span class="price">12,00€</span></li>
+                <li>Petits Calamars <span class="price">12,00€</span></li>
+                <li>Poisson Mariné <span class="price">10,00€</span></li>
+                <li>Poulpe <span class="price">12,00€</span></li>
+                <li>Poisson Rosé Grillé <span class="price">12,00€</span></li>
+            </ul>`;
+            const planchaESP = `<ul>
+                <li>Gambas Plancha <span class="price">20,00€</span></li>
+                <li>Calamar Plancha <span class="price">18,00€</span></li>
+                <li>Pata de Pulpo <span class="price">20,00€</span></li>
+                <li>Rosada <span class="price">16,00€</span></li>
+                <li>Pincho de Langostinos <span class="price">5,00€</span></li>
+            </ul>`;
+            const planchaENG = `<ul>
+                <li>Grilled Prawns <span class="price">20.00€</span></li>
+                <li>Grilled Squid <span class="price">18.00€</span></li>
+                <li>Octopus Leg <span class="price">20.00€</span></li>
+                <li>Grilled Pink Fish <span class="price">16.00€</span></li>
+                <li>Prawn Skewer <span class="price">5.00€</span></li>
+            </ul>`;
+            const planchaFRN = `<ul>
+                <li>Crevettes Grillées <span class="price">20,00€</span></li>
+                <li>Calamar Grillé <span class="price">18,00€</span></li>
+                <li>Pied de Poulpe <span class="price">20,00€</span></li>
+                <li>Poisson Rosé Grillé <span class="price">16,00€</span></li>
+                <li>Brochette de Crevettes <span class="price">5,00€</span></li>
+            </ul>`;
+            const burgersESP = `<ul>
+                <li>Hamburguesa de Ternera <span class="price">18,00€</span></li>
+                <li>Hamburguesa de Pollo Crujiente <span class="price">14,00€</span></li>
+            </ul>`;
+            const burgersENG = `<ul>
+                <li>Beef Burger <span class="price">18.00€</span></li>
+                <li>Crispy Chicken Burger <span class="price">14.00€</span></li>
+            </ul>`;
+            const burgersFRN = `<ul>
+                <li>Burger de Bœuf <span class="price">18,00€</span></li>
+                <li>Burger de Poulet Croquant <span class="price">14,00€</span></li>
+            </ul>`;
+            const sandwichESP = `<ul>
+                <li>Jamón y Queso <span class="price">4,00€</span></li>
+                <li>Bacon y Queso <span class="price">6,00€</span></li>
+                <li>Vegetal <span class="price">7,00€</span></li>
+                <li>Flamenco <span class="price">9,00€</span></li>
+                <li>Serranito <span class="price">7,00€</span></li>
+            </ul>`;
+            const sandwichENG = `<ul>
+                <li>Ham and Cheese <span class="price">4.00€</span></li>
+                <li>Bacon and Cheese <span class="price">6.00€</span></li>
+                <li>Vegetable <span class="price">7.00€</span></li>
+                <li>Flamenco <span class="price">9.00€</span></li>
+                <li>Serranito <span class="price">7.00€</span></li>
+            </ul>`;
+            const sandwichFRN = `<ul>
+                <li>Jambon et Fromage <span class="price">4,00€</span></li>
+                <li>Lard et Fromage <span class="price">6,00€</span></li>
+                <li>Végétarien <span class="price">7,00€</span></li>
+                <li>Flamenco <span class="price">9,00€</span></li>
+                <li>Serranito <span class="price">7,00€</span></li>
+            </ul>`;
             if (lang === 'es') {
+
                 document.querySelector('h1').innerText = 'Carta del Restaurante';
-                sections[0].querySelector('h2').innerText = 'Entrantes';
-                sections[0].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Entrante ${index + 1} <span class="price">7,50€</span>`);
 
-                sections[1].querySelector('h2').innerText = 'Platos Principales';
-                sections[1].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Principal ${index + 1} <span class="price">12,50€</span>`);
+                sections[0].querySelector('h2').innerText = 'Tapas';
+                sections[0].querySelector('ul').innerHTML = tapasESP;
 
-                sections[2].querySelector('h2').innerText = 'Postres';
-                sections[2].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Postre ${index + 1} <span class="price">4,50€</span>`);
+                sections[1].querySelector('h2').innerText = 'Entrantes';
+                sections[1].querySelector('ul').innerHTML = entrantesESP;
 
-                sections[3].querySelector('h2').innerText = 'Bebidas';
-                sections[3].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Bebida ${index + 1} <span class="price">2,50€</span>`);
+                sections[2].querySelector('h2').innerText = 'Especialidades de la Casa';
+                sections[2].querySelector('ul').innerHTML = especialidadesESP;
+
+                sections[3].querySelector('h2').innerText = 'Ensaladas';
+                sections[3].querySelector('ul').innerHTML = enasaldasESP;
+
+                sections[4].querySelector('h2').innerText = 'Pescaíto Frito';
+                sections[4].querySelector('ul').innerHTML = fritosESP;
+
+                sections[5].querySelector('h2').innerText = 'Plancha';
+                sections[5].querySelector('ul').innerHTML = planchaESP;
+
+                sections[6].querySelector('h2').innerText = 'Hamburguesas';
+                sections[6].querySelector('ul').innerHTML = burgersESP;
+
+                sections[7].querySelector('h2').innerText = 'Sandwiches';
+                sections[7].querySelector('ul').innerHTML = sandwichESP;
+
+                sections[8].querySelector('h2').innerText = 'Bebidas';
+
             } else if (lang === 'en') {
+                
                 document.querySelector('h1').innerText = 'Restaurant Menu';
-                sections[0].querySelector('h2').innerText = 'Starters';
-                sections[0].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Starter ${index + 1} <span class="price">7.50€</span>`);
 
-                sections[1].querySelector('h2').innerText = 'Main Courses';
-                sections[1].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Main ${index + 1} <span class="price">12.50€</span>`);
+                sections[0].querySelector('h2').innerText = 'Tapas';
+                sections[0].querySelector('ul').innerHTML = tapasENG;
 
-                sections[2].querySelector('h2').innerText = 'Desserts';
-                sections[2].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Dessert ${index + 1} <span class="price">4.50€</span>`);
+                sections[1].querySelector('h2').innerText = 'Starters';
+                sections[1].querySelector('ul').innerHTML = entrantesENG;
 
-                sections[3].querySelector('h2').innerText = 'Drinks';
-                sections[3].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Drink ${index + 1} <span class="price">2.50€</span>`);
+                sections[2].querySelector('h2').innerText = 'House Specialties';
+                sections[2].querySelector('ul').innerHTML = especialidadesENG;
+
+                sections[3].querySelector('h2').innerText = 'Salads';
+                sections[3].querySelector('ul').innerHTML = ensaladasENG;
+
+                sections[4].querySelector('h2').innerText = 'Fried Fish';
+                sections[4].querySelector('ul').innerHTML = fritosENG;
+
+                sections[5].querySelector('h2').innerText = 'Grilled Dishes';
+                sections[5].querySelector('ul').innerHTML = planchaENG;
+
+                sections[6].querySelector('h2').innerText = 'Burgers';
+                sections[6].querySelector('ul').innerHTML = burgersENG;
+
+                sections[7].querySelector('h2').innerText = 'Sandwichs';
+                sections[7].querySelector('ul').innerHTML = sandwichENG;
+
+                sections[8].querySelector('h2').innerText = 'Drinks';
+
             } else if (lang === 'fr') {
+
                 document.querySelector('h1').innerText = 'Menu du Restaurant';
-                sections[0].querySelector('h2').innerText = 'Entrées';
-                sections[0].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Entrée ${index + 1} <span class="price">7,50€</span>`);
 
-                sections[1].querySelector('h2').innerText = 'Plats Principaux';
-                sections[1].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Plat Principal ${index + 1} <span class="price">12,50€</span>`);
+                sections[0].querySelector('h2').innerText = 'Tapas';  
+                sections[0].querySelector('ul').innerHTML = tapasFRN; 
 
-                sections[2].querySelector('h2').innerText = 'Desserts';
-                sections[2].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Dessert ${index + 1} <span class="price">4,50€</span>`);
+                sections[1].querySelector('h2').innerText = 'Entrées'; 
+                sections[1].querySelector('ul').innerHTML = entrantesFRN;
 
-                sections[3].querySelector('h2').innerText = 'Boissons';
-                sections[3].querySelectorAll('li').forEach((li, index) => li.innerHTML = `Boisson ${index + 1} <span class="price">2,50€</span>`);
+                sections[2].querySelector('h2').innerText = 'Spécialités de la Maison'; 
+                sections[2].querySelector('ul').innerHTML = especialidadesFRN;
+
+                sections[3].querySelector('h2').innerText = 'Salades'; 
+                sections[3].querySelector('ul').innerHTML = ensaladasFRN;
+
+                sections[4].querySelector('h2').innerText = 'Poisson Frit'; 
+                sections[4].querySelector('ul').innerHTML = fritosFRN;
+
+                sections[5].querySelector('h2').innerText = 'Grillades';  
+                sections[5].querySelector('ul').innerHTML = planchaFRN;    
+
+                sections[6].querySelector('h2').innerText = 'Burgers';  
+                sections[6].querySelector('ul').innerHTML = burgersFRN;
+
+                sections[7].querySelector('h2').innerText = 'Sandwichs'; 
+                sections[7].querySelector('ul').innerHTML = sandwichFRN;
+
+                sections[8].querySelector('h2').innerText = 'Boissons';       
+
             }
         }
     </script>
@@ -147,50 +388,98 @@
     <h1>Carta del Restaurante</h1>
 
     <div class="container">
+
+        <div class="section" id="tapas">
+            <h2>Tapas</h2>
+            <ul>
+                <li>Patatas Bravas <span class="price">6,00€</span></li>
+                <li>Pipirrana de Marisco <span class="price">6,50€</span></li>
+                <li>Albóndigas en Salsa de Almendras <span class="price">7,00€</span></li>
+                <li>Croquetas Caseras <span class="price">8,00€</span></li>
+                <li>Boquerones en Vinagre <span class="price">6,50€</span></li>
+                <li>Patatas Fritas <span class="price">5,00€</span></li>
+                <li>Ensaladilla Rusa <span class="price">6,50€</span></li>
+                <li>Cogollos con Gambas Pil Pil<span class="price">7,50</span></li>
+            </ul>
+        </div>
+
         <div class="section" id="entrantes">
             <h2>Entrantes</h2>
             <ul>
-                <li>Entrante 1 <span class="price">7,50€</span></li>
-                <li>Entrante 2 <span class="price">6,80€</span></li>
-                <li>Entrante 3 <span class="price">5,90€</span></li>
-                <li>Entrante 4 <span class="price">6,20€</span></li>
-                <li>Entrante 5 <span class="price">7,10€</span></li>
-                <li>Entrante 6 <span class="price">6,50€</span></li>
-                <li>Entrante 7 <span class="price">9,30€</span></li>
+                <li>Melón con Jamón <span class="price">9,00€</span></li>
+                <li>Ensaladilla Rusa <span class="price">12,00€</span></li>
+                <li>Steak Tartar <span class="price">20,00€</span></li>
+                <li>Jamón Ibérico <span class="price">20,00€</span></li>
+                <li>Croquetas Caseras <span class="price">16,00€</span></li>
+                <li>Patatas Fritas <span class="price">8,50€</span></li>
+                <li>Patatas Bravas <span class="price">13,00€</span></li>
+                <li>Lagrimitas de Pollo <span class="price">12,00</span></li>
             </ul>
         </div>
 
-        <div class="section" id="platos-principales">
-            <h2>Platos Principales</h2>
+        <div class="section" id="especialidades">
+            <h2>Especialidades de la Casa</h2>
             <ul>
-                <li>Principal 1 <span class="price">12,50€</span></li>
-                <li>Principal 2 <span class="price">18,00€</span></li>
-                <li>Principal 3 <span class="price">14,30€</span></li>
-                <li>Principal 4 <span class="price">11,90€</span></li>
-                <li>Principal 5 <span class="price">16,50€</span></li>
-                <li>Principal 6 <span class="price">13,20€</span></li>
-                <li>Principal 7 <span class="price">10,80€</span></li>
-                <li>Principal 8 <span class="price">9,50€</span></li>
-                <li>Principal 9 <span class="price">17,10€</span></li>
-                <li>Principal 10 <span class="price">12,80€</span></li>
-                <li>Principal 11 <span class="price">15,00€</span></li>
-                <li>Principal 12 <span class="price">13,50€</span></li>
-                <li>Principal 13 <span class="price">16,20€</span></li>
-                <li>Principal 14 <span class="price">12,90€</span></li>
-                <li>Principal 15 <span class="price">11,40€</span></li>
+                <li>Gambas Cocidas <span class="price">12,00€</span></li>
+                <li>Cogollos con Gambas Pil Pil  <span class="price">15,00€</span></li>
+                <li>Taco Marinero <span class="price">9,00€</span></li>
+                <li>Berenjenas Fritas con Miel de Caña <span class="price">9,50€</span></li>
+                <li>Gambas Pil Pil <span class="price">14,00€</span></li>
+                <li>Boquerones en Vinagre <span class="price">13,00€</span></li>
+                <li>Pipirrana de Marisco <span class="price">13,00€</span></li>
+                <li>Albóndigas en Salsa de Almendras <span class="price">14,00€</span></li>
             </ul>
         </div>
 
-        <div class="section" id="postres">
-            <h2>Postres</h2>
+        <div class="section" id="ensaladas">
+            <h2>Ensaladas</h2>
             <ul>
-                <li>Postre 1 <span class="price">4,50€</span></li>
-                <li>Postre 2 <span class="price">5,20€</span></li>
-                <li>Postre 3 <span class="price">4,80€</span></li>
-                <li>Postre 4 <span class="price">3,90€</span></li>
-                <li>Postre 5 <span class="price">5,50€</span></li>
-                <li>Postre 6 <span class="price">4,70€</span></li>
-                <li>Postre 7 <span class="price">3,50€</span></li>
+                <li>Ensalada Mixta <span class="price">12,00€</span></li>
+                <li>Ensalada César  <span class="price">15,00€</span></li>
+                <li>Ensalada Flamenco <span class="price">16,00€</span></li>
+            </ul>
+        </div>
+
+        <div class="section" id="fritos">
+            <h2>Pescaíto Frito</h2>
+            <ul>
+                <li>Boquerones <span class="price">10,00€</span></li>
+                <li>Boquerones al Limón <span class="price">10,00€</span></li>
+                <li>Calamares <span class="price">12,00€</span></li>
+                <li>Calamaritos <span class="price">12,00€</span></li>
+                <li>Adobo <span class="price">10,00€</span></li>
+                <li>Pulpo <span class="price">12,00€</span></li>
+                <li>Rosada <span class="price">12,00€</span></li>
+            </ul>
+        </div>
+
+        <div class="section" id="plancha">
+            <h2>Plancha</h2>
+            <ul>
+                <li>Gambas Plancha <span class="price">20,00€</span></li>
+                <li>Calamar Plancha <span class="price">18,00€</span></li>
+                <li>Pata de Pulpo <span class="price">20,00€</span></li>
+                <li>Rosada <span class="price">16,00€</span></li>
+                <li>Pincho de Langostinos <span class="price">5,00€</span></li>
+            </ul>
+        </div>
+
+        <div class="section" id="hamburguesas">
+            <h2>Hamburguesas</h2>
+            <ul>
+                <li>Hamburguesa de Ternera <span class="price">18,00€</span></li>
+                <li>Hamburguesa de Pollo Crujiente <span class="price">14,00€</span></li>
+            </ul>
+        </div>
+
+        <div class="section" id="sandwiches">
+            <h2>Sandwiches</h2>
+            <ul>
+                <li>Jamón y Queso <span class="price">4,00€</span></li>
+                <li>Bacon y Queso <span class="price">6,00€</span></li>
+                <li>Vegetal <span class="price">7,00€</span></li>
+                <li>Flamenco <span class="price">9,00€</span></li>
+                <li>Serranito <span class="price">7,00€</span></li>
             </ul>
         </div>
 
@@ -207,3 +496,5 @@
     </div>
 </body>
 </html>
+
+
