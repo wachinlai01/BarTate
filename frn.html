@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('flamenco.jpeg');
+            background-repeat: repeat;
+            background-size: 100px 100px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin: 30px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            background: #ffffff;
+            border: 3px solid #444; /* Bordes más visibles */
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px; /* Más separación entre secciones */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            page-break-inside: avoid;
+        }
+        .section h2 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .section ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .section li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1em;
+            padding: 8px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .section li:last-child {
+            border-bottom: none;
+        }
+        .price {
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu</h1>
+    <div class="container">
+        <div class="container">
+
+            <div class="section" id="tapas">
+                <h2>Tapas</h2>
+                <ul><ul>
+                    <li>Pommes de Terre Épicées <span class="price">6,00€</span></li>
+                    <li>Salade de Fruits de Mer <span class="price">6,50€</span></li>
+                    <li>Boulettes de Viande à la Sauce Amande <span class="price">7,00€</span></li>
+                    <li>Croquettes Maison <span class="price">8,00€</span></li>
+                    <li>Anchois au Vinaigre <span class="price">6,50€</span></li>
+                    <li>Frites <span class="price">5,00€</span></li>
+                    <li>Salade Russe <span class="price">6,50€</span></li>
+                    <li>Cœurs de Laitue aux Crevettes à l'Ail <span class="price">7,50€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="entrantes">
+                <h2>Entrées</h2>
+                <ul><ul>
+                    <li>Melon au Jambon <span class="price">9,00€</span></li>
+                    <li>Salade Russe <span class="price">12,00€</span></li>
+                    <li>Steak Tartare <span class="price">20,00€</span></li>
+                    <li>Jambon Ibérique <span class="price">20,00€</span></li>
+                    <li>Croquettes Maison <span class="price">16,00€</span></li>
+                    <li>Frites <span class="price">8,50€</span></li>
+                    <li>Pommes de Terre Épicées <span class="price">13,00€</span></li>
+                    <li>Lanières de Poulet <span class="price">12,00€</span></li>
+                    <li>Tranche de Fromage à la Crème, Saumon et Avocat <span class="price">13,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="especialidades">
+                <h2>Spécialités de la Maison</h2>
+                <ul><ul>
+                    <li>Crevettes Bouillies <span class="price">12,00€</span></li>
+                    <li>Cœurs de Laitue aux Crevettes à l'Ail <span class="price">15,00€</span></li>
+                    <li>Taco Marinier <span class="price">9,00€</span></li>
+                    <li>Aubergines Frites au Miel de Canne <span class="price">9,50€</span></li>
+                    <li>Crevettes à l'Ail <span class="price">14,00€</span></li>
+                    <li>Anchois au Vinaigre <span class="price">13,00€</span></li>
+                    <li>Salade de Fruits de Mer <span class="price">13,00€</span></li>
+                    <li>Boulettes de Viande à la Sauce Amande <span class="price">14,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="ensaladas">
+                <h2>Salades</h2>
+                <ul><ul>
+                    <li>Salade Mixte <span class="price">12,00€</span></li>
+                    <li>Salade César <span class="price">15,00€</span></li>
+                    <li>Salade Flamenco <span class="price">16,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="fritos">
+                <h2>Poisson Frit</h2>
+                <ul><ul>
+                    <li>Anchois <span class="price">10,00€</span></li>
+                    <li>Anchois au Citron <span class="price">10,00€</span></li>
+                    <li>Calamars <span class="price">12,00€</span></li>
+                    <li>Petits Calamars <span class="price">12,00€</span></li>
+                    <li>Poisson Mariné <span class="price">10,00€</span></li>
+                    <li>Poulpe <span class="price">12,00€</span></li>
+                    <li>Poisson Rosé Grillé <span class="price">12,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="plancha">
+                <h2>Grillades</h2>
+                <ul><ul>
+                    <li>Crevettes Grillées <span class="price">20,00€</span></li>
+                    <li>Calamar Grillé <span class="price">18,00€</span></li>
+                    <li>Pied de Poulpe <span class="price">20,00€</span></li>
+                    <li>Poisson Rosé Grillé <span class="price">16,00€</span></li>
+                    <li>Brochette de Crevettes <span class="price">5,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="hamburguesas">
+                <h2>Burgers</h2>
+                <ul><ul>
+                    <li>Burger de Bœuf <span class="price">18,00€</span></li>
+                    <li>Burger de Poulet Croquant <span class="price">14,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="sandwiches">
+                <h2>Sandwichs</h2>
+                <ul><ul>
+                    <li>Jambon et Fromage <span class="price">4,00€</span></li>
+                    <li>Lard et Fromage <span class="price">6,00€</span></li>
+                    <li>Végétarien <span class="price">7,00€</span></li>
+                    <li>Flamenco <span class="price">9,00€</span></li>
+                    <li>Serranito <span class="price">7,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="cafe">
+                <h2>Café</h2>
+                <ul><ul>
+                    <li>Espresso <span class="price">2,00€</span></li>
+                    <li>Café Noir <span class="price">2,00€</span></li>
+                    <li>Café au Lait <span class="price">2,00€</span></li>
+                    <li>Café Macchiato <span class="price">2,00€</span></li>
+                    <li>Cappuccino <span class="price">3,00€</span></li>
+                    <li>Café Bombón (Café au Lait Concentré Sucré) <span class="price">2,50€</span></li>
+                    <li>Café Noisette <span class="price">2,00€</span></li>
+                    <li>Américain <span class="price">2,00€</span></li>
+                    <li>Carajillo (Café avec Alcool) <span class="price">3,00€</span></li>
+                    <li>Café Irlandais <span class="price">5,50€</span></li>
+                    <li>Thé <span class="price">2,50€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="refrescos">
+                <h2>Boissons Gazeuses</h2>
+                <ul><ul>
+                    <li>Eau Plate <span class="price">2,50€</span></li>
+                    <li>Eau Gazeuse <span class="price">3,00€</span></li>
+                    <li>Eau Plate 1,5L <span class="price">3,50€</span></li>
+                    <li>Coca-Cola <span class="price">3,00€</span></li>
+                    <li>Coca-Cola Zero <span class="price">3,00€</span></li>
+                    <li>Fanta Orange <span class="price">3,00€</span></li>
+                    <li>Fanta Citron <span class="price">3,00€</span></li>
+                    <li>Aquarius <span class="price">3,50€</span></li>
+                    <li>Aquarius Orange <span class="price">3,50€</span></li>
+                    <li>Nestea <span class="price">3,50€</span></li>
+                    <li>Bière au Gingembre <span class="price">3,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="zumos">
+                <h2>Jus</h2>
+                <ul><ul>
+                    <li>Ananas <span class="price">3,00€</span></li>
+                    <li>Pomme <span class="price">3,00€</span></li>
+                    <li>Pêche <span class="price">3,00€</span></li>
+                    <li>Tomate <span class="price">3,00€</span></li>
+                    <li>Orange Fraîche <span class="price">4,50€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="cervezas">
+                <h2>Cervezas</h2>
+                <ul><ul>
+                    <li>Verre <span class="price">3,00€</span></li>
+                    <li>Pinte <span class="price">4,50€</span></li>
+                    <li>Alhambra 1925 <span class="price">4,00€</span></li>
+                    <li>Mahou 5 Étoiles <span class="price">3,50€</span></li>
+                    <li>San Miguel <span class="price">3,50€</span></li>
+                    <li>Coronita <span class="price">4,00€</span></li>
+                    <li>Stella Artois <span class="price">4,00€</span></li>
+                </ul></ul>
+            </div>
+    
+            <div class="section" id="vino-tinto">
+                <h2>Vin Rouge</h2>
+                <ul><ul>
+                    <li>Vin de la Maison <span class="price">3,50€/18€</span></li>
+                    <li>Protos Ribera del Duero <span class="price">4,00€/20€</span></li>
+                    <li>Vin Rouge d'Été <span class="price">3,50€</span></li>
+                    <li>Vin Rouge avec Limonade <span class="price">3,50€</span></li>
+                    <li>Sangria <span class="price">5,50€</span></li>
+                </ul></ul>
+            </div>
+            
+            <div class="section" id="vino-blanco">
+                <h2>Vin Blanc</h2>
+                <ul><ul>
+                    <li>Verdejo de la Maison <span class="price">3,50€/18€</span></li>
+                    <li>Protos Verdejo <span class="price">3,50€/20€</span></li>
+                </ul></ul>
+            </div>
+            
+            <div class="section" id="vino-rosado">
+                <h2>Vin Rosé</h2>
+                <ul><ul>
+                    <li>Rosé de la Maison <span class="price">3,50€/18€</span></li>
+                </ul></ul>
+            </div>
+            
+            <div class="section" id="cava">
+                <h2>Cava</h2>
+                <ul><ul>
+                    <li>Verre <span class="price">3,50€</span></li>
+                    <li>Bouteille <span class="price">20€</span></li>
+                    <li>Sangria de Cava <span class="price">6,50€</span></li>
+                </ul></ul>
+            </div>
+            
+            <div class="section" id="champagne">
+                <h2>Champagne</h2>
+                <ul>
+                    <li>Moet Chandon <span class="price">70€</span></li>
+                </ul>
+            </div>
+            
+            <div class="section" id="smoothies">
+                <h2>Smoothies</h2>
+                <ul><ul>
+                    <li>Fraise <span class="price">6€</span></li>
+                    <li>Mangue <span class="price">6€</span></li>
+                    <li>Ananas <span class="price">6€</span></li>
+                    <li>Noix de Coco <span class="price">6€</span></li>
+                    <li>Fruit de la Passion <span class="price">6€</span></li>
+                </ul></ul>
+            </div>
+            
+            <div class="section" id="milkshakes">
+                <h2>Milkshakes</h2>
+                <ul><ul>
+                    <li>Vanille <span class="price">6€</span></li>
+                    <li>Fraise <span class="price">6€</span></li>
+                    <li>Chocolat <span class="price">6€</span></li>
+                </ul></ul>
+            </div>
+            
+            <div class="section" id="ginebra">
+                <h2>Gin</h2>
+                <ul>
+                    <li>Seagrams <span class="price">8€</span></li>
+                    <li>Larios <span class="price">7,50€</span></li>
+                    <li>Larios Rosé <span class="price">7,50€</span></li>
+                    <li>Bombay Saphire <span class="price">8€</span></li>
+                    <li>Tanqueray <span class="price">7,50€</span></li>
+                    <li>Beefeater <span class="price">7,50€</span></li>
+                    <li>Hendricks <span class="price">12€</span></li>
+                </ul>
+            </div>
+            
+            <div class="section" id="ron">
+                <h2>Rhum</h2>
+                <ul>
+                    <li>Barceló <span class="price">7,50€</span></li>
+                    <li>Bacardi <span class="price">7,50€</span></li>
+                    <li>Brugal <span class="price">7,50€</span></li>
+                    <li>Cacique <span class="price">7,50€</span></li>
+                    <li>Barceló Imperial <span class="price">12€</span></li>
+                </ul>
+            </div>
+            
+            <div class="section" id="whisky">
+                <h2>Whisky</h2>
+                <ul>
+                    <li>Jameson <span class="price">7,50€</span></li>
+                    <li>J&amp;B <span class="price">7,50€</span></li>
+                    <li>Dyc 8 <span class="price">7,50€</span></li>
+                    <li>Ballantines <span class="price">7,50€</span></li>
+                    <li>Red Label <span class="price">7,50€</span></li>
+                    <li>Jack Daniels <span class="price">10€</span></li>
+                    <li>Black Label <span class="price">11€</span></li>
+                </ul>
+            </div>
+            
+            <div class="section" id="vodka">
+                <h2>Vodka</h2>
+                <ul>
+                    <li>Absolut <span class="price">7,50€</span></li>
+                    <li>Smirnoff <span class="price">7,50€</span></li>
+                </ul>
+            </div>
+            
+            <div class="section" id="licores">
+                <h2>Liqueurs</h2>
+                <ul>
+                    <li>Baileys <span class="price">5€</span></li>
+                    <li>Martini Rosso <span class="price">5€</span></li>
+                    <li>Martini Blanco <span class="price">5€</span></li>
+                    <li>Brandy Magno <span class="price">5€</span></li>
+                    <li>Anís <span class="price">5€</span></li>
+                    <li>Ruavieja <span class="price">5€</span></li>
+                    <li>Tequila <span class="price">5€</span></li>
+                    <li>Vodka Caramelo <span class="price">5€</span></li>
+                    <li>Jägger <span class="price">5€</span></li>
+                    <li>Pacharán <span class="price">5€</span></li>
+                    <li>Tía María <span class="price">5€</span></li>
+                </ul>
+            </div>
+            
+            <div class="section" id="cocteles">
+                <h2>Cocktails</h2>
+                <ul><ul>
+                    <li>Mojito <span class="price">9€</span></li>
+                    <li>Mojito à la Mangue <span class="price">9€</span></li>
+                    <li>Mojito à la Fraise <span class="price">9€</span></li>
+                    <li>Mojito à la Noix de Coco <span class="price">9€</span></li>
+                    <li>Piña Colada <span class="price">9€</span></li>
+                    <li>Aperol Spritz <span class="price">9€</span></li>
+                    <li>Margarita <span class="price">9€</span></li>
+                    <li>Espresso Martini <span class="price">9€</span></li>
+                    <li>Caipirinha <span class="price">9€</span></li>
+                    <li>Caipiroska <span class="price">9€</span></li>
+                    <li>Pornstar Martini <span class="price">9€</span></li>
+                    <li>Negroni <span class="price">9€</span></li>
+                    <li>Sex on the Beach <span class="price">9€</span></li>
+                    <li>Long Island Iced Tea <span class="price">9€</span></li>
+                    <li>Campari Spritz <span class="price">9€</span></li>
+                    <li>Moscow Mule <span class="price">9€</span></li>
+                    <li>Bloody Mary <span class="price">9€</span></li>
+                    <li>Daiquiri à la Fraise <span class="price">9€</span></li>
+                    <li>Daiquiri à la Mangue <span class="price">9€</span></li>
+                    <li>Daiquiri au Fruit de la Passion <span class="price">9€</span></li>
+                    <li>Limoncello Spritz <span class="price">9€</span></li>
+                    <li>Flamencocktail <span class="price">9€</span></li>
+                </ul></ul>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
