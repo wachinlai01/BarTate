@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menú</title>
+  <title>Menú Playa Flamenco</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,11 +13,39 @@
 
     body {
       font-family: sans-serif;
-      background: url('flamenco.png') no-repeat top center;
-      background-size: contain;
-      min-height: 100vh;
       background-color: #f5f5f5;
-      padding-top: 40vh;
+    }
+
+    .logo {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .logo img {
+      max-width: 90%;
+      height: auto;
+    }
+
+    /* LOGO PARA ESCRITORIO */
+    @media (min-width: 768px) {
+      .logo-desktop {
+        display: block;
+      }
+    }
+
+    /* LOGO SOLO FLAMENCO - MÓVIL VERTICAL */
+    @media (max-width: 767px) and (orientation: portrait) {
+      .logo-portrait {
+        display: block;
+      }
+    }
+
+    /* LOGO LETRAS + FLAMENCO HORIZONTAL */
+    @media (max-width: 767px) and (orientation: landscape) {
+      .logo-landscape {
+        display: block;
+      }
     }
 
     .container {
@@ -28,18 +56,23 @@
       padding: 1rem;
     }
 
-    .card {
-      flex: 1 1 300px; /* grow, shrink, base width */
-      max-width: 400px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      transition: transform 0.2s ease;
-      min-height: 200px;
-    }
+  .card {
+    flex: 1 1 40vw;                   /* Toma un 40% del ancho disponible */
+    max-width: 45vw;                 /* Nunca mayor al 45% */
+    min-width: 0;                    /* Permite encogerse si es necesario */
+    min-height: 20vh;                /* Altura mínima proporcional a pantalla */
+    max-height: 40vh;                /* Evita que sea demasiado alta */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease;
+    position: relative;
+    background-color: #000;
+  }
+
 
     .card:hover {
       transform: scale(1.02);
@@ -58,9 +91,11 @@
       margin: 0;
       padding: 1.5rem;
       font-size: 1.8rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
     }
 
-    /* Garantiza columna en móviles pequeños */
     @media (max-width: 600px) {
       .container {
         flex-direction: column;
@@ -70,6 +105,21 @@
   </style>
 </head>
 <body>
+
+  <!-- LOGO VERSIÓNES -->
+  <div class="logo logo-desktop">
+    <img src="flamenco.png" alt="Logo completo">
+  </div>
+
+  <div class="logo logo-portrait">
+    <img src="vertical.png" alt="Solo flamenco">
+  </div>
+
+  <div class="logo logo-landscape">
+    <img src="horizontal.png" alt="Letras + flamenco horizontal">
+  </div>
+
+  <!-- VIÑETAS -->
   <div class="container">
     <a class="card bebidas" href="Playa_Flamenco_Bebida.pdf" target="_blank" rel="noopener noreferrer">
       <h2>Bebidas / Drinks</h2>
@@ -79,5 +129,6 @@
       <h2>Comida / Food</h2>
     </a>
   </div>
+
 </body>
 </html>
