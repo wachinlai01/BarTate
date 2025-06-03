@@ -96,12 +96,57 @@
       width: 100%;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+    /* ✅ MÓVIL VERTICAL */
+@media (max-width: 767px) and (orientation: portrait) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .card {
+    flex: 1 1 80vw;
+    max-width: 90vw;
+    min-height: 25vh;
+    max-height: 35vh;
+  }
+
+  .logo img {
+    max-width: 80vw;
+    height: auto;
+    max-height: 15vh;
+  }
+}
+
+/* ✅ MÓVIL HORIZONTAL */
+@media (max-width: 767px) and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+
+  .card {
+    flex: 1 1 40vw;
+    max-width: 45vw;
+    min-width: 0;
+    min-height: 25vh;
+    max-height: 35vh;
+  }
+
+  .logo img {
+    max-height: 20vh;
+    width: auto;
+    max-width: 40vw;
+  }
+}
+
+
+
   </style>
 </head>
 <body>
@@ -112,7 +157,7 @@
   </div>
 
   <div class="logo logo-portrait">
-    <img src="vertical.png" alt="Solo flamenco">
+    <img src="horizontal.png" alt="Solo flamenco">
   </div>
 
   <div class="logo logo-landscape">
