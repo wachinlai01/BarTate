@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú Playa Flamenco</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .logo {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .logo img {
+      max-width: 90%;
+      height: auto;
+    }
+
+    /* LOGO PARA ESCRITORIO */
+    @media (min-width: 768px) {
+      .logo-desktop {
+        display: block;
+      }
+    }
+
+    /* LOGO SOLO FLAMENCO - MÓVIL VERTICAL */
+    @media (max-width: 767px) and (orientation: portrait) {
+      .logo-portrait {
+        display: block;
+      }
+    }
+
+    /* LOGO LETRAS + FLAMENCO HORIZONTAL */
+    @media (max-width: 767px) and (orientation: landscape) {
+      .logo-landscape {
+        display: block;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+  .card {
+    flex: 1 1 40vw;                   /* Toma un 40% del ancho disponible */
+    max-width: 45vw;                 /* Nunca mayor al 45% */
+    min-width: 0;                    /* Permite encogerse si es necesario */
+    min-height: 20vh;                /* Altura mínima proporcional a pantalla */
+    max-height: 40vh;                /* Evita que sea demasiado alta */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease;
+    position: relative;
+    background-color: #000;
+  }
+
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card.bebidas {
+      background: url('Mojito2.png') center/contain no-repeat;
+    }
+
+    .card.comida {
+      background: url('Calamares2.png') center/contain no-repeat;
+    }
+
+    .card h2 {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 0;
+      padding: 1.5rem;
+      font-size: 1.8rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* ✅ MÓVIL VERTICAL */
+@media (max-width: 767px) and (orientation: portrait) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .card {
+    flex: 1 1 80vw;
+    max-width: 90vw;
+    min-height: 25vh;
+    max-height: 35vh;
+  }
+
+  .logo img {
+    max-width: 80vw;
+    height: auto;
+    max-height: 15vh;
+  }
+}
+
+/* ✅ MÓVIL HORIZONTAL */
+@media (max-width: 767px) and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+
+  .card {
+    flex: 1 1 40vw;
+    max-width: 45vw;
+    min-width: 0;
+    min-height: 25vh;
+    max-height: 35vh;
+  }
+
+  .logo img {
+    max-height: 20vh;
+    width: auto;
+    max-width: 40vw;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- LOGO VERSIÓNES -->
+  <div class="logo logo-desktop">
+    <img src="flamenco.png" alt="Logo completo">
+  </div>
+
+  <div class="logo logo-portrait">
+    <img src="horizontal.png" alt="Solo flamenco">
+  </div>
+
+  <div class="logo logo-landscape">
+    <img src="horizontal.png" alt="Letras + flamenco horizontal">
+  </div>
+
+  <!-- VIÑETAS -->
+  <div class="container">
+    <a class="card bebidas" href="Playa_Flamenco_Bebida.pdf" target="_blank" rel="noopener noreferrer">
+      <h2>Bebidas / Drinks</h2>
+    </a>
+
+    <a class="card comida" href="Playa_Flamenco_Comida.pdf" target="_blank" rel="noopener noreferrer">
+      <h2>Comida / Food</h2>
+    </a>
+  </div>
+
+</body>
+</html>
