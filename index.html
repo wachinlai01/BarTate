@@ -22,17 +22,25 @@
       padding: 1.5rem 1rem;
     }
 
-    .logo img {
-      max-width: 90%;
-      height: auto;
-    }
-
+  .logo img {
+    width: auto;
+    max-width: 600px;   /* tamaño máximo en escritorio */
+    width: 80%;         /* tamaño relativo */
+    height: auto;
+  }
   .horarios {
     display: flex;
     flex-direction: column;  /* uno debajo de otro */
     align-items: center;     /* centrado horizontal */
     gap: 0.5rem;
     margin-top: 2rem;
+  }
+
+  .card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;  /* recorta para llenar */
+    border-radius: 10px;
   }
 
     /* LOGO PARA ESCRITORIO */
@@ -80,10 +88,11 @@
     text-decoration: none;
   }
 
+  /*
   .card img {
     width: 40%;
     height: auto;
-  }
+  }*/
 
   .card h2 {
     flex: 1;
@@ -188,7 +197,7 @@
 
   <!-- LOGO VERSIÓNES -->
   <div class="logo logo-desktop">
-    <img src="flamenco.png" alt="Logo completo">
+    <img src="horizontal.png" alt="Logo completo">
   </div>
 
   <div class="logo logo-portrait">
