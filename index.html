@@ -27,6 +27,14 @@
       height: auto;
     }
 
+  .horarios {
+    display: flex;
+    flex-direction: column;  /* uno debajo de otro */
+    align-items: center;     /* centrado horizontal */
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
     /* LOGO PARA ESCRITORIO */
     @media (min-width: 768px) {
       .logo-desktop {
@@ -57,27 +65,38 @@
     }
 
   .card {
-    flex: 1 1 40vw;                   /* Toma un 40% del ancho disponible */
-    max-width: 45vw;                 /* Nunca mayor al 45% */
-    min-width: 0;                    /* Permite encogerse si es necesario */
-    min-height: 20vh;                /* Altura mínima proporcional a pantalla */
-    max-height: 40vh;                /* Evita que sea demasiado alta */
+    display: flex;
+    align-items: center;   /* centra verticalmente */
+    gap: 1rem;
+
+    flex: 1 1 40vw;
+    max-width: 45vw;
+    min-height: 20vh;
+
     border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    padding: 1rem;
+    background-color: transparent;
+    color: black;
     text-decoration: none;
-    color: white;
-    transition: transform 0.2s ease;
-    position: relative;
-    background-color: #000;
   }
 
+  .card img {
+    width: 40%;
+    height: auto;
+  }
 
-    .card:hover {
+  .card h2 {
+    flex: 1;
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .card:hover {
       transform: scale(1.02);
-    }
+  }
 
+/*
     .card.bebidas {
       background: url('Mojito2.png') center/contain no-repeat;
     }
@@ -85,7 +104,9 @@
     .card.comida {
       background: url('hamburguesa.png') center/contain no-repeat;
     }
+*/
 
+/*
     .card h2 {
       background-color: rgba(0, 0, 0, 0.6);
       margin: 0;
@@ -95,6 +116,14 @@
       bottom: 0;
       width: 100%;
     }
+*/
+
+  .card h2 {
+    flex: 1;
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 0;
+  }
 
     /* ✅ MÓVIL VERTICAL */
 @media (max-width: 767px) and (orientation: portrait) {
@@ -136,6 +165,12 @@
     min-width: 0;
     min-height: 25vh;
     max-height: 35vh;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card img {
+    width: 70%;
   }
 
   .logo img {
@@ -166,13 +201,20 @@
 
   <!-- VIÑETAS -->
   <div class="container">
-    <a class="card bebidas" href="Playa_Flamenco_Bebida.pdf" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="Playa_Flamenco_Bebida.pdf" target="_blank">
+      <img src="bebidas.jpeg" alt="Bebidas">
       <h2>Bebidas / Drinks</h2>
     </a>
 
-    <a class="card comida" href="Playa_Flamenco_Comida.pdf" target="_blank" rel="noopener noreferrer">
+    <a class="card" href="Playa_Flamenco_Comida.pdf" target="_blank">
+      <img src="calamares.jpeg" alt="Comida">
       <h2>Comida / Food</h2>
     </a>
+  </div>
+
+  <div class="horarios">
+    <h3><b></b>Horario Restaurante: </b> <b style="color: #7aaff1;">10:00-23:00</b></h3>
+    <h3><b></b>Horario Hamacas: </b> <b style="color: #7aaff1;">10:00-19:00</b></h3>
   </div>
 
 </body>
